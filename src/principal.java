@@ -41,7 +41,14 @@ public class principal {
             xo = (maximoComunDivisor-b*yo)/a;
         }
         System.out.println("Vamos a expresar el GCD como combinacion lineal de a y b, de la siguiente forma: ax+by=GCD(a,b)");
-        System.out.println("Lo cual nos daría la siguiente ecuación: "+a+"x + "+b+"y = "+maximoComunDivisor);
+        if(b<0){
+            System.out.println("Lo cual nos daría la siguiente ecuación: "+a+"x + "+"("+b+")"+"y = "+maximoComunDivisor);
+
+        }else{
+            System.out.println("Lo cual nos daría la siguiente ecuación: "+a+"x + "+b+"y = "+maximoComunDivisor);
+        }
+
+
         System.out.println("Una solución particular de este sistema es x = "+xo+", y = "+yo);
 
         System.out.println("Desea otra solución?(si,no): ");
@@ -61,5 +68,7 @@ public class principal {
             y = yo - (a/maximoComunDivisor)*i;
             System.out.println("Solución "+i+": x = "+x+" y = "+y);
         }
+
     }
+
 }
