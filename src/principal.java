@@ -1,3 +1,4 @@
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class principal {
@@ -23,12 +24,19 @@ public class principal {
     static Scanner lector = new Scanner(System.in);
 
     public static void main(String[] args){
+        int a=0;
+        int b=0;
 
-        System.out.println("Ingrese el primer numero:");
-        int a = lector.nextInt();
+        try {
+            System.out.println("Ingrese el primer numero:");
+            a = lector.nextInt();
 
-        System.out.println("Ingrese el segundo numero: ");
-        int b = lector.nextInt();
+            System.out.println("Ingrese el segundo numero: ");
+            b = lector.nextInt();
+        }catch (InputMismatchException e){
+            System.out.println("Error: Ingrese un numero entero");
+            System.exit(0);
+        }
 
         int maximoComunDivisor = GCD(a,b);
 
@@ -57,9 +65,19 @@ public class principal {
         int x;
         int y;
         int t = 0;
+
         if(respuesta.equalsIgnoreCase("si")||respuesta.equalsIgnoreCase("sí")){
+        try {
             System.out.println("Cuantas soluciones necesita: ");
             t = lector.nextInt();
+            if(t<=0){
+                System.out.println("La cantidad de soluciones siempre será un numero entero positivo, diferente de cero");
+                System.exit(0);
+            }
+        }catch(InputMismatchException e){
+            System.out.println("Error: La cantidad de soluciones siempre será un numero entero positivo, diferente de cero");
+            System.exit(0);
+        }
         }else{
             System.exit(0);
         }
